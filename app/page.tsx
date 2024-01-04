@@ -1,32 +1,32 @@
-import Image from "next/image";
-import Link from "next/link";
-import { ImageData } from "../constants";
+import ImagePreview from "../components/Modal";
 
 export default function Home() {
   return (
     <main>
-      <div className="flex items-center justify-center carousel space-x-4 py-2">
-        <div className="carousel-item w-96">
-          <img src="/images/building (1).jpg" alt="" />
+      <div id="root">
+        <div className="flex items-center justify-center carousel space-x-4 py-2">
+          <div className="carousel-item w-96">
+            <ImagePreview imagePath="/images/building (1).jpg"/>
+          </div>
+          <div className="carousel-item w-96">
+            <ImagePreview imagePath="/images/building (2).jpg"/>
+          </div>
         </div>
-        <div className="carousel-item w-96">
-          <img src="/images/building (2).jpg" alt="" />
+        <div className="flex items-center justify-center carousel space-x-4 py-2">
+          <div className="carousel-item w-96">
+            <ImagePreview imagePath="/images/building (3).jpg"/>
+          </div>
+          <div className="carousel-item w-96">
+            <ImagePreview imagePath="/images/building (4).jpg"/>
+          </div>
         </div>
-      </div>
-      <div className="flex items-center justify-center carousel space-x-4 py-2">
-        <div className="carousel-item w-96">
-          <img src="/images/building (3).jpg" alt="" />
-        </div>
-        <div className="carousel-item w-96">
-          <img src="/images/building (4).jpg" alt="" />
-        </div>
-      </div>
-      <div className="flex items-center justify-center carousel space-x-4 py-2">
-        <div className="carousel-item w-96">
-          <img src="/images/building (5).jpg" alt="" />
-        </div>
-        <div className="carousel-item w-96">
-          <img src="/images/building (6).jpg" alt="" />
+        <div className="flex items-center justify-center carousel space-x-4 py-2">
+          <div className="carousel-item w-96">
+            <ImagePreview imagePath="/images/building (5).jpg"/>
+          </div>
+          <div className="carousel-item w-96">
+            <ImagePreview imagePath="/images/building (6).jpg"/>
+          </div>
         </div>
       </div>
     </main>
