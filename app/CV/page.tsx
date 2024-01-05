@@ -37,7 +37,7 @@ const CVPage = () => {
             <div className="timeline-start md:text-end mb-10">
               <time className="font-mono italic">2023</time>
               <div className="text-lg font-black">A Journey of Success</div>
-              Fast forward to 2023, and Jack's journey in the art world has been nothing short of impressive. His mastery of sharpie pens has garnered attention, creating a distinctive style that captivates viewers. Jack continues to thrive, leaving an indelible mark on the art scene.
+              Fast forward to 2023, and Jack&apos;s journey in the art world has been nothing short of impressive. His mastery of sharpie pens has garnered attention, creating a distinctive style that captivates viewers. Jack continues to thrive, leaving an indelible mark on the art scene.
             </div>
             <hr />
           </li>

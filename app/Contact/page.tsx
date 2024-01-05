@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image'
 import { useState, FormEvent } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -55,7 +56,7 @@ const ContactPage = () => {
       <div className="flex item-center justify-center">
         <div className="card lg:card-side bg-base-100 shadow-xl">
           <figure>
-            <img src="/images/building (1).jpg" alt="" />
+            <Image src="/images/building (1).jpg" alt="" />
           </figure>
           <div className="card-body">
             <h2 className="card-title">Get in Touch</h2>
