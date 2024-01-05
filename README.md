@@ -1,5 +1,5 @@
 # Art Gallery
-Basic Art Portfolio Website built with Next.js & DaisyUI.
+Basic Art Portfolio website built with Next.js, DaisyUI & Resend.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
