@@ -1,40 +1,52 @@
 "use client";
 import { useState, FormEvent } from "react";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const ContactPage = () => {
-  const [formData, setFormData] = useState({
-    firstName: "Muhammad",
-    lastName: "Ali",
-    email: "ali299@gmail.com",
-    message: "Hello there from Art Gallery",
-  });
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
+  // submit button clicked
   const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
+    setLoading(true);
     try {
       const response = await fetch("/api", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          message: message,
+        }),
       });
       if (response.ok) {
-        toast.success("Email has been sent successfully!");
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setMessage("");
+        toast.success("Message sent successfully!", {
+          position: toast.POSITION.TOP_CENTER
+        });
       } else {
-        toast.error(`Error sending email: ${response.statusText}`);
+        toast.error(`Error sending message: ${response.statusText}`, {
+          position: toast.POSITION.TOP_CENTER
+        });
       }
     } catch (error) {
-      toast.error(`Error sending email: ${error}`);
+      toast.error(`Error sending message: ${error}`, {
+        position: toast.POSITION.TOP_CENTER
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -55,22 +67,26 @@ const ContactPage = () => {
             <form onSubmit={handleFormSubmit}>
               <label className="form-control w-full">
                 <div className="label">
-                  <span className="label-text">First Name *</span>
+                  <span className="label-text">Name *</span>
                 </div>
                 <div className="flex space-x-4">
                   <input
                     type="text"
                     placeholder="First Name"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
+                    value={firstName}
+                    onChange={(e) => {
+                      setFirstName(e.target.value);
+                    }}
                     required
                     className="input input-bordered w-full max-w-xs"
                   />
                   <input
                     type="text"
                     placeholder="Last Name"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
+                    value={lastName}
+                    onChange={(e) => {
+                      setLastName(e.target.value);
+                    }}
                     required
                     className="input input-bordered w-full max-w-xs"
                   />
@@ -82,9 +98,11 @@ const ContactPage = () => {
                 </div>
                 <input
                   type="text"
-                  placeholder=""
-                  value={formData.email}
-                  onChange={handleInputChange}
+                  placeholder="example@gmail.com"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                   required
                   className="input input-bordered w-full max-w-xs"
                 />
@@ -95,17 +113,20 @@ const ContactPage = () => {
                 </div>
                 <textarea
                   className="textarea textarea-bordered h-24"
-                  placeholder=""
-                  value={formData.message}
-                  onChange={handleInputChange}
+                  placeholder="Type your message here..."
+                  value={message}
+                  onChange={(e) => {
+                    setMessage(e.target.value); 
+                  }}
                   required
                 ></textarea>
               </label>
 
-              <div className="card-actions justify-end">
-                <button type="submit" className="btn btn-primary">
-                  Submit
+              <div className="card-actions justify-end py-5">
+                <button type="submit" className="btn btn-primary" disabled={loading}>
+                  {loading ? <span>Submitting<span className="loading loading-dots loading-xs ml-2">\</span></span> : 'Submit'}
                 </button>
+                <ToastContainer />
               </div>
             </form>
           </div>
