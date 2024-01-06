@@ -10,7 +10,9 @@ const BioPage = () => {
       <h1 className='text-xl text-center p-5'>Artist Passionate in Architecture & Nature Artworks</h1>
       <div className='flex item-center justify-center'>
         <div className="card lg:card-side bg-base-100 shadow-xl">
-          <figure><Image src="/images/profile.jpg" alt="" className='w-96'/></figure>
+          <figure>
+            <Image src="/images/profile.jpg" alt="" className='w-96' width={150} height={150} />
+          </figure>
           <div className="card-body text-justify">
             <h2 className="card-title">Meet Jack!</h2>
             <p>My name is Jack Chin. I&apos;m an artist from Kuala Lumpur, Malaysia. I am currently {currentAge} and have been drawing since 16 years old.

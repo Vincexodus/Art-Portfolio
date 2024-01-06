@@ -56,7 +56,7 @@ const ContactPage = () => {
       <div className="flex item-center justify-center">
         <div className="card lg:card-side bg-base-100 shadow-xl">
           <figure>
-            <Image src="/images/building (1).jpg" alt="" />
+            <Image src="/images/building (1).jpg" alt="" width={720} height={720} />
           </figure>
           <div className="card-body">
             <h2 className="card-title">Get in Touch</h2>
