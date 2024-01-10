@@ -1,4 +1,4 @@
-import ImagePreview from "../components/Modal";
+import ImagePreview from "./components/Modal";
 
 export default function Home() {
   return (
